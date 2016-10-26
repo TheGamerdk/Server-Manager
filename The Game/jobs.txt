@@ -2,4 +2,9 @@ Game Servers
 Web Hosting
 Web Shop
 Video Streaming
-Botnets(?)
+
+
+OPTIONAL ILLEGAL ROUTE:
+Botnets
+DDoSing
+Hacking another servers(?)
