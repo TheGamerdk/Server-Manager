@@ -2,6 +2,10 @@ Game Servers
 Web Hosting
 Web Shop
 Video Streaming
+Filehosting
+Data Hosting
+Entertainment Service
+Payment Service
 
 
 OPTIONAL ILLEGAL ROUTE:
