@@ -1,0 +1,15 @@
+Standard case fans are 80, 92, 120, 140, 200 and 230 mm in width and length.( CPU Fans )
+There are 2 common gpu fan types:
+Turbines (wich are pretty much stock fans for most of the newer gpus)
+ 
+And "Blowers"( wich are mostly aftermarket fans on aftermarket gpus. they do exist howerver on older gpus like the 750(ti) for example)
+                                 
+
+
+Turbine fans dissipate heat out the back of the case over a dense fin array/vapor chamber in the plastic housing and are generally noisier than aftermarket fans
+
+Blowers however have a more "standad"-like designe with fans you could also see on cpu coolers. 
+Single-Fan coolers either push or pull air trough the heatsink.
+Dual-Fan coolers mostly have a Push-Pull configuration in wich 1 will push and 1 will pull air trough the heatsink.
+Sometimes the heatsink is closed on dual fan designes wich means that the air has a set path that it takes trough the heatsink and doesnt leak, 
+wich creates a static pressure in wich no dust can settle.
