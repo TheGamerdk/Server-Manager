@@ -1,6 +1,6 @@
 Soni
 Micronut
-Netflux
+Netflush
 Uniting
 YouWatch
 Twatch
@@ -12,7 +12,7 @@ Wolfconn
 Bell Technologies
 Pear 
 Sonic Pan
-Elgoog
+googol
 AmaZin
 PilotBay
 
