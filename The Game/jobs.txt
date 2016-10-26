@@ -9,6 +9,7 @@ Payment Service
 VPN
 VPS
 VOiP Servers (Team Speak 3, Discord etc)
+Video and text chatting
 
 OPTIONAL ILLEGAL ROUTE:
 Botnets
