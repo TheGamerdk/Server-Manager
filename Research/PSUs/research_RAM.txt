@@ -1,0 +1,9 @@
+RAM MODULES FOR SERVER MOTHERBOARDS
+
+Various Models:
+
+RDIMM:for starting servers
+ECC UDIMM:for home workstations
+LRDIMM:Reduced load memory module, compatible with 2012 server platforms that use either Intel Xeon E5 or AMD Opteron 6200
+ECC SODIMM:
+FBDIMM:
