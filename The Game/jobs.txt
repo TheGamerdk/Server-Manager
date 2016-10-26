@@ -6,7 +6,9 @@ Filehosting
 Data Hosting
 Entertainment Service
 Payment Service
-
+VPN
+VPS
+VOiP Servers (Team Speak 3, Discord etc)
 
 OPTIONAL ILLEGAL ROUTE:
 Botnets
