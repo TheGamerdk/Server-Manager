@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class CPU_local_manager : MonoBehaviour {
@@ -18,8 +18,7 @@ public class CPU_local_manager : MonoBehaviour {
 
 
 	}
-	// No need to try to fix this quite now
-	/*void GetTotal() {
+		void GetTotal() {
 		if (cores == 1) {
 			combined = speed * cores;
 		} else {
@@ -33,9 +32,10 @@ public class CPU_local_manager : MonoBehaviour {
 				combined = speed * cores * reduce_by;
 			}
 		}
-
+		if (cores > 10) {
+			cores = 10 ;
+		}
 	}
-	*/
 
 	void PushToCentral() {
 		Server_Data.server_dat.combined_speed += speed*cores;
