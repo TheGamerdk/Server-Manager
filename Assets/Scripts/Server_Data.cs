@@ -36,10 +36,11 @@ public class Server_Data : MonoBehaviour {
 		used = needed;
 		GameObject.Find("Speed_Text_Usage").GetComponent<Text>().text = "Used Capacity: " + used + "/" + combined_speed + "Ghz";
 		if (needed > combined_speed) {
+			float local_needed = needed;
 			used = 0;
 			used = combined_speed;
-			needed = needed - combined_speed;
-			GameObject.Find("Speed_Text_Usage").GetComponent<Text>().text = "Used Capacity: " + used + "/" + combined_speed + "Ghz" + "\n" + "<color=red>WARNING! Capacity Filled!</color>" + "\n" + "Need " + needed + " more Ghz of Capacity";
+			local_needed = needed - combined_speed;
+			GameObject.Find("Speed_Text_Usage").GetComponent<Text>().text = "Used Capacity: " + used + "/" + combined_speed + "Ghz" + "\n" + "<color=red>WARNING! Capacity Filled!</color>" + "\n" + "Need " + local_needed + " more Ghz of Capacity";
 		}
 	}
 		

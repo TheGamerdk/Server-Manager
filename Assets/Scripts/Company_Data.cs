@@ -16,7 +16,7 @@ public class Company_Data : MonoBehaviour {
 			DontDestroyOnLoad(gameObject);
 		} else {
 			Destroy(gameObject);
-		}
+		} 
 	}
 
 	
