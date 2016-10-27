@@ -18,3 +18,5 @@ PilotBay
 Discrud
 McBurgers
 Well-Mart
+Skoop
+Term Spook
