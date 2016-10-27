@@ -1,1 +1,1 @@
-low_storage
+1.5
