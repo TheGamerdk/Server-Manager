@@ -1,0 +1,29 @@
+First of, there are quite a few different form factors for Motherboards.
+An extract from a Wikipdia article states:
+<< 
+As of 2007, most desktop computer motherboards use the ATX standard form factor
+— even those found in Macintosh and Sun computers, which have not been built from commodity components.
+A case's motherboard and PSU form factor must all match,
+though some smaller form factor motherboards of the same family will fit larger cases.
+For example, an ATX case will usually accommodate a microATX motherboard. 
+>>
+
+
+So we have
+ Standart-ATX[305x244mm], wich is the largest common form factor
+ Micro-ATX[244x244mm], wich is the 2nd largest common form factor
+ Mini-ITX[170x170mm], wich is the largest ITX form factor
+ Nano-ITX[120x120mm], wich is the 2nd largest ITX form factor
+ Pico-ITX[100x72mm],wich is the 2nd smallest ITX form factor
+ 
+ And now to the sockets.
+ first of! for the 1156 cpus:
+ ATX:
+ ASUS P7P55D-E [154.99$] Generic Motherboard.
+ ASUS Maximus III Formula (ROG) [289.99$] with the possibility of overclocking. <Brand named>
+ 
+ Micro-ATX:
+ Intel BLKDP55WB [100$] Generic Motherboard.
+ ASUS P8H61-M LE/CSM <REV 3.0> [162.10$] 
+ 
+ 
