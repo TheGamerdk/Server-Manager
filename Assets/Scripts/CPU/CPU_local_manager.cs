@@ -37,10 +37,12 @@ public class CPU_local_manager : MonoBehaviour {
 	}
 	*/
 
-	void PushToCentral() {
+	public void PushToCentral() {
 		Server_Data.server_dat.combined_speed += speed*cores;
 		Server_Data.server_dat.AssignCapacity();
 	}
 
-
+	public void EmptyOwnCapacity() {
+		Server_Data.server_dat.combined_speed -= speed*cores;
+	}
 }

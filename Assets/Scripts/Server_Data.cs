@@ -33,6 +33,19 @@ public class Server_Data : MonoBehaviour {
 
 	//Assign capacity
 	public void AssignCapacity() {
+		float temp = 0;
+		float temp2 = 0;
+		float temp3 = 0;
+		if (Job_Central.job_centrals.Accepted1[3] != null) {
+			float.TryParse(Job_Central.job_centrals.Accepted1[3], out temp);
+		}
+		if (Job_Central.job_centrals.Accepted2[3] != null) {
+			float.TryParse(Job_Central.job_centrals.Accepted2[3], out temp2);
+		}
+		if (Job_Central.job_centrals.Accepted2[3] != null) {
+			float.TryParse(Job_Central.job_centrals.Accepted3[3], out temp3);
+		}
+		needed = temp + temp2 + temp3;
 		used = needed;
 		GameObject.Find("Speed_Text_Usage").GetComponent<Text>().text = "Used Capacity: " + used + "/" + combined_speed + "Ghz";
 		if (needed > combined_speed) {
@@ -44,5 +57,13 @@ public class Server_Data : MonoBehaviour {
 		}
 	}
 		
-
+	public void CalculateWeek() {
+			int temp;
+			int.TryParse(Job_Central.job_centrals.Accepted1[5], out temp);
+			Company_Data.company_dat.money += temp;
+			int.TryParse(Job_Central.job_centrals.Accepted2[5], out temp);
+			Company_Data.company_dat.money += temp;
+			int.TryParse(Job_Central.job_centrals.Accepted3[5], out temp);
+			Company_Data.company_dat.money += temp;
+	}
 }
