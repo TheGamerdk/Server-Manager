@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class CPU_local_manager : MonoBehaviour {
@@ -18,24 +18,25 @@ public class CPU_local_manager : MonoBehaviour {
 
 
 	}
-	// No need to try to fix this quite now
-	/*void GetTotal() {
+		void GetTotal() {
+		
 		if (cores == 1) {
 			combined = speed * cores;
+
 		} else {
-			float core_to_reduce_by = cores - 1;
-			float reduce_by = 1 - core_to_reduce_by / 10;
-			print(reduce_by);
-			if (reduce_by > 1) {
+			float core_reduce_by = cores - 1;
+			float reduce_by = 1 - core_reduce_by / 10;
+			if (reduce_by >= 1) {
 				combined = speed * cores / reduce_by;
-				print("divide");
 			} else {
 				combined = speed * cores * reduce_by;
 			}
+			
+
 		}
+			
 
 	}
-	*/
 
 	public void PushToCentral() {
 		Server_Data.server_dat.combined_speed += speed*cores;
