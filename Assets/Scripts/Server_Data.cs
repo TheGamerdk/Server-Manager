@@ -5,10 +5,13 @@ using UnityEngine.UI;
 public class Server_Data : MonoBehaviour {
 
 	public static Server_Data server_dat;
-	public float needed;
-	public float used;
+	public float needed_speed;
+	public float used_speed;
+	public float needed_space;
+	public float used_space;
 	public bool filled;
 	public float combined_speed; 
+	public float combined_storage;
 
 	// Use this for initialization
 	void Awake () {
@@ -20,6 +23,7 @@ public class Server_Data : MonoBehaviour {
 		} else {
 			Destroy(gameObject);
 		}
+		AssignCapacity();
 	}
 	
 	// Only call this if REALLY needed!
@@ -29,6 +33,7 @@ public class Server_Data : MonoBehaviour {
 	//Updates server stats
 	void Update () {
 		GameObject.Find("Speed_Text").GetComponent<Text>().text = "Total Speed/Capacity: " + combined_speed + "Ghz";
+		GameObject.Find("Space_Text").GetComponent<Text>().text = "Total Space/Capacity: " + combined_storage + "GB";
 	}
 
 	//Assign capacity
@@ -36,6 +41,9 @@ public class Server_Data : MonoBehaviour {
 		float temp = 0;
 		float temp2 = 0;
 		float temp3 = 0;
+		float temp4 = 0;
+		float temp5 = 0;
+		float temp6 = 0;
 		if (Job_Central.job_centrals.Accepted1[3] != null) {
 			float.TryParse(Job_Central.job_centrals.Accepted1[3], out temp);
 		}
@@ -45,15 +53,34 @@ public class Server_Data : MonoBehaviour {
 		if (Job_Central.job_centrals.Accepted2[3] != null) {
 			float.TryParse(Job_Central.job_centrals.Accepted3[3], out temp3);
 		}
-		needed = temp + temp2 + temp3;
-		used = needed;
-		GameObject.Find("Speed_Text_Usage").GetComponent<Text>().text = "Used Capacity: " + used + "/" + combined_speed + "Ghz";
-		if (needed > combined_speed) {
-			float local_needed = needed;
-			used = 0;
-			used = combined_speed;
-			local_needed = needed - combined_speed;
-			GameObject.Find("Speed_Text_Usage").GetComponent<Text>().text = "Used Capacity: " + used + "/" + combined_speed + "Ghz" + "\n" + "<color=red>WARNING! Capacity Filled!</color>" + "\n" + "Need " + local_needed + " more Ghz of Capacity";
+		if (Job_Central.job_centrals.Accepted1[4] != null) {
+			float.TryParse(Job_Central.job_centrals.Accepted1[4], out temp4);
+		}
+		if (Job_Central.job_centrals.Accepted2[4] != null) {
+			float.TryParse(Job_Central.job_centrals.Accepted2[4], out temp5);
+		}
+		if (Job_Central.job_centrals.Accepted2[4] != null) {
+			float.TryParse(Job_Central.job_centrals.Accepted3[4], out temp6);
+		}
+		needed_speed = temp + temp2 + temp3;
+		needed_space = temp4 + temp5 + temp6;
+		used_speed = needed_speed;
+		used_space = needed_space;
+		GameObject.Find("Speed_Text_Usage").GetComponent<Text>().text = "Used Capacity: " + used_speed + "/" + combined_speed + "Ghz";
+		GameObject.Find("Space_Text_Usage").GetComponent<Text>().text = "Used Capacity: " + used_speed + "/" + combined_speed + "GB";
+		if (needed_speed > combined_speed) {
+			float local_needed = needed_speed;
+			used_speed = 0;
+			used_speed = combined_speed;
+			local_needed = needed_speed - combined_speed;
+			GameObject.Find("Speed_Text_Usage").GetComponent<Text>().text = "Used Capacity: " + used_speed + "/" + combined_speed + "Ghz" + "\n" + "<color=red>WARNING! Capacity Filled!</color>" + "\n" + "Need " + local_needed + " more Ghz of Capacity";
+		}
+		if (needed_space > combined_storage) {
+			float local_needed = needed_space;
+			used_space = 0;
+			used_space = combined_storage;
+			local_needed = needed_space - combined_storage;
+			GameObject.Find("Space_Text_Usage").GetComponent<Text>().text = "Used Capacity: " + used_space + "/" + combined_storage + "GB" + "\n" + "<color=red>WARNING! Capacity Filled!</color>" + "\n" + "Need " + local_needed + " more GB of Space";
 		}
 	}
 		

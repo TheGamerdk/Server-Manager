@@ -216,7 +216,13 @@ public class Job_Central : MonoBehaviour {
 	void AcceptOffer(string[] array) {
 		float convertTemp;
 		float.TryParse(array[2], out convertTemp);
-		if(Server_Data.server_dat.needed + convertTemp > Server_Data.server_dat.combined_speed) {
+		float convertTemp2;
+		float.TryParse(array[3], out convertTemp2);
+		if(Server_Data.server_dat.needed_speed + convertTemp > Server_Data.server_dat.combined_speed) {
+			job_detail_panel.SetActive(false);
+			return;
+		}
+		if(Server_Data.server_dat.needed_speed + convertTemp2 > Server_Data.server_dat.combined_speed) {
 			job_detail_panel.SetActive(false);
 			return;
 		}
