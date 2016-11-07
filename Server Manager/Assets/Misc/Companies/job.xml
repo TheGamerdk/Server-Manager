@@ -1,0 +1,10 @@
+<jobs>
+  <job>
+    <job_number>0</job_number>
+    <lowest_pay>10</lowest_pay>
+    <middle_pay>50</middle_pay>
+    <max_pay>100</max_pay>
+    <cpu_max>1.5</cpu_max>
+    <storage_max>1.5</storage_max>
+  </job>
+</jobs>
