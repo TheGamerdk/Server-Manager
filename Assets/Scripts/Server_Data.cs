@@ -36,34 +36,10 @@ public class Server_Data : MonoBehaviour {
 		GameObject.Find("Space_Text").GetComponent<Text>().text = "Total Space/Capacity: " + combined_storage + "GB";
 	}
 
+
+
 	//Assign capacity
 	public void AssignCapacity() {
-		float temp = 0;
-		float temp2 = 0;
-		float temp3 = 0;
-		float temp4 = 0;
-		float temp5 = 0;
-		float temp6 = 0;
-		if (Job_Central.job_centrals.Accepted1[3] != null) {
-			float.TryParse(Job_Central.job_centrals.Accepted1[3], out temp);
-		}
-		if (Job_Central.job_centrals.Accepted2[3] != null) {
-			float.TryParse(Job_Central.job_centrals.Accepted2[3], out temp2);
-		}
-		if (Job_Central.job_centrals.Accepted2[3] != null) {
-			float.TryParse(Job_Central.job_centrals.Accepted3[3], out temp3);
-		}
-		if (Job_Central.job_centrals.Accepted1[4] != null) {
-			float.TryParse(Job_Central.job_centrals.Accepted1[4], out temp4);
-		}
-		if (Job_Central.job_centrals.Accepted2[4] != null) {
-			float.TryParse(Job_Central.job_centrals.Accepted2[4], out temp5);
-		}
-		if (Job_Central.job_centrals.Accepted2[4] != null) {
-			float.TryParse(Job_Central.job_centrals.Accepted3[4], out temp6);
-		}
-		needed_speed = temp + temp2 + temp3;
-		needed_space = temp4 + temp5 + temp6;
 		used_speed = needed_speed;
 		used_space = needed_space;
 		GameObject.Find("Speed_Text_Usage").GetComponent<Text>().text = "Used Capacity: " + used_speed + "/" + combined_speed + "Ghz";

@@ -70,13 +70,14 @@ public class Job_Central : MonoBehaviour {
 		LoadStrings("/Misc/Companies/jobs.txt", jobs);
 		JobOffer1 = new string[6];
 		JobOffer2 = new string[6];
-		JobOffer3 = new string[6];
+		JobOffer3 = new string[6]; 
 		Accepted1 = new string[JobOffer1.Length];
 		Accepted1[0] = "0";
 		Accepted2 = new string[JobOffer1.Length];
 		Accepted2[0] = "0";
 		Accepted3 = new string[JobOffer1.Length];
 		Accepted3[0] = "0";
+
 		LoadXMLFile("/Misc/Companies/job.xml");
 		RandomiseJob(JobOffer1);
 		AssignToUI(JobOffer1, 1);
@@ -87,12 +88,15 @@ public class Job_Central : MonoBehaviour {
 //		GoToDetails(JobOffer1, 1);
 	}
 
+	void Update() {
+		GetNeeded();
+	}
+
 	void RandomiseJob(string[] job) {
 		int company_name_random = Random.Range(0, CountLines("/Misc/Companies/companies.txt"));
 		int the_job = Random.Range(0, CountLines("/Misc/Companies/jobs.txt"));
 		float storage;
 		float cpu_power;
-		int score;
 
 		cpu_power = Random.Range(0.5f, max_cpu[the_job]);
 		storage = Random.Range(0.5f, max_storage[the_job]);
@@ -131,6 +135,35 @@ public class Job_Central : MonoBehaviour {
 			job1.SetActive(true);
 		}
 	}
+
+	public void GetNeeded() {
+		float temp = 0;
+		float temp2 = 0;
+		float temp3 = 0;
+		float temp4 = 0;
+		float temp5 = 0;
+		float temp6 = 0;
+		if (Accepted1[0] != "") {
+			float.TryParse(Accepted1[3], out temp);
+		}
+		if (Accepted2[0] != "") {
+			float.TryParse(Accepted2[3], out temp2);
+		}
+		if (Accepted2[0] != "") {
+			float.TryParse(Accepted3[3], out temp3);
+		}
+		if (Accepted1[0] != "") {
+			float.TryParse(Accepted1[4], out temp4);
+		}
+		if (Accepted2[0] != "") {
+			float.TryParse(Accepted2[4], out temp5);
+		}
+		if (Accepted2[0] != "") {
+			float.TryParse(Accepted3[4], out temp6);
+		}
+		Server_Data.server_dat.needed_speed = temp + temp2 + temp3;
+		Server_Data.server_dat.needed_space = temp4 + temp5 + temp6;
+	}
 		
 	void UpdateUI() {
 		if (JobOffer1[5] == "1") {
@@ -167,9 +200,6 @@ public class Job_Central : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () {
-		
-	}
 
 	void AssignToUI(string[] array, int offer) {
 		Job_offer_panel.SetActive(true);

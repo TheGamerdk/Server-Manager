@@ -4,7 +4,7 @@ using System.Collections;
 
 public class CPU_Send_To_Upgrade : MonoBehaviour {
 
-	public string name;
+	public string object_name;
 
 	public float speed;
 	public int cores;
@@ -17,7 +17,7 @@ public class CPU_Send_To_Upgrade : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		gameObject.GetComponentInChildren<Text>().text = name + "\n" + speed + " Ghz" + "\n" + cores + " Core(s)" + "\n" + price + "$";
+		gameObject.GetComponentInChildren<Text>().text = object_name + "\n" + speed + " Ghz" + "\n" + cores + " Core(s)" + "\n" + price + "$";
 	}
 
 	public void Send() {

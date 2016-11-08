@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class HDD_Send_To_Upgrade : MonoBehaviour {
 
-	public string name;
+	public string object_name;
 	public int price;
 	public float space;
 

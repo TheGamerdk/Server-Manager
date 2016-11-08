@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Server_Change_Name : MonoBehaviour {
 
-	private string server_name;
+//	private string server_name;
 
 	// Use this for initialization
 	void Start () {
@@ -13,7 +13,7 @@ public class Server_Change_Name : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		server_name = gameObject.GetComponentInChildren<Text>().text;
+		//server_name = gameObject.GetComponentInChildren<Text>().text;
 	}
 
 	public void OnClick() {
