@@ -4,3 +4,6 @@ Unity Game involving managing servers, surviving ddos attacks and more
 --
 Our discord
 https://discord.gg/dwA8f4v
+
+Our Trello board
+https://trello.com/b/AfbWPBRe/server-manager
