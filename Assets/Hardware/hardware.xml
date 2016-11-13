@@ -17,4 +17,14 @@
 		<cores>1</cores>
 		<price>250</price>
   </cpu>
+  <hdd>
+		<name>WD Blue</name>
+		<storage_amount>32</storage_amount>
+		<price>175</price>
+  </hdd>
+   <hdd>
+		<name>Offbrand Drive</name>
+		<storage_amount>16</storage_amount>
+		<price>125</price>
+  </hdd>
 </hardware>

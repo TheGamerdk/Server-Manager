@@ -1,10 +1,25 @@
 <jobs>
+  <info>
+  	<amount>2</amount>
+  </info>
   <job>
-    <job_number>0</job_number>
+  	<job_name>Web Hosting</job_name>
     <lowest_pay>10</lowest_pay>
-    <middle_pay>50</middle_pay>
+    <middle_pay>35</middle_pay>
+    <max_pay>80</max_pay>
+    <cpu_min>0.75</cpu_min>
+   	<storage_min>5</storage_min>
+    <cpu_max>2</cpu_max>
+    <storage_max>10</storage_max>
+  </job>
+  <job>
+  	<job_name>Game Server Hosting</job_name>
+    <lowest_pay>25</lowest_pay>
+    <middle_pay>55</middle_pay>
     <max_pay>100</max_pay>
-    <cpu_max>1.5</cpu_max>
-    <storage_max>1.5</storage_max>
+    <cpu_min>3.25</cpu_min>
+   	<storage_min>7.5</storage_min>
+    <cpu_max>8</cpu_max>
+    <storage_max>15</storage_max>
   </job>
 </jobs>

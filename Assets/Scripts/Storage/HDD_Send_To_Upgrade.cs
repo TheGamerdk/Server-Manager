@@ -15,7 +15,7 @@ public class HDD_Send_To_Upgrade : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		gameObject.GetComponentInChildren<Text>().text = name + "\n" + space + " GB" + "\n" + price + "$";
+		gameObject.GetComponentInChildren<Text>().text = object_name + "\n" + space + " GB" + "\n" + price + "$";
 	}
 
 	public void Send() {

@@ -36,7 +36,9 @@ public class Job_Central : MonoBehaviour {
 	public GameObject job3;
 
 	public float[] max_cpu;
+	public float[] min_cpu;
 	public float[] max_storage;
+	public float[] min_storage;
 	public int[] max_pay;
 	public int[] middle_pay;
 	public int[] low_pay;
@@ -47,6 +49,8 @@ public class Job_Central : MonoBehaviour {
 	public string[] Accepted2;
 	public string[] Accepted3;
 
+	public int JobAmount;
+
 
 	void Start () {
 		if (job_centrals == null) {
@@ -55,19 +59,21 @@ public class Job_Central : MonoBehaviour {
 		} else {
 			Destroy(gameObject);
 		}
+		CountJobsXML("/Misc/Companies/job.xml");
 		company_names = new string[CountLines("/Misc/Companies/companies.txt")];
-		jobs = new string[CountLines("/Misc/Companies/jobs.txt")];
-		max_cpu = new float[CountLines("/Misc/Companies/jobs.txt")];
-		max_pay = new int[CountLines("/Misc/Companies/jobs.txt")];
-		middle_pay = new int[CountLines("/Misc/Companies/jobs.txt")];
-		low_pay = new int[CountLines("/Misc/Companies/jobs.txt")];
-		max_storage = new float[CountLines("/Misc/Companies/jobs.txt")];
+		jobs = new string[JobAmount];
+		max_cpu = new float[JobAmount];
+		min_cpu = new float[JobAmount];
+		min_storage = new float[JobAmount];
+		max_pay = new int[JobAmount];
+		middle_pay = new int[JobAmount];
+		low_pay = new int[JobAmount];
+		max_storage = new float[JobAmount];
 		filled_spaces = new bool[3];
 		//Obsolete, now handled by XML loading
 		//LoadStringsToFloat("/Misc/Companies/job_require_1.txt", max_cpu);
 		//LoadStringsToFloat("/Misc/Companies/job_require_2.txt", max_storage);
 		LoadStrings("/Misc/Companies/companies.txt", company_names);
-		LoadStrings("/Misc/Companies/jobs.txt", jobs);
 		JobOffer1 = new string[6];
 		JobOffer2 = new string[6];
 		JobOffer3 = new string[6]; 
@@ -92,14 +98,14 @@ public class Job_Central : MonoBehaviour {
 		GetNeeded();
 	}
 
-	void RandomiseJob(string[] job) {
+	public void RandomiseJob(string[] job) {
 		int company_name_random = Random.Range(0, CountLines("/Misc/Companies/companies.txt"));
-		int the_job = Random.Range(0, CountLines("/Misc/Companies/jobs.txt"));
+		int the_job = Random.Range(0, JobAmount);
 		float storage;
 		float cpu_power;
 
-		cpu_power = Random.Range(0.5f, max_cpu[the_job]);
-		storage = Random.Range(0.5f, max_storage[the_job]);
+		cpu_power = Random.Range(min_cpu[the_job], max_cpu[the_job]);
+		storage = Random.Range(min_storage[the_job], max_storage[the_job]);
 		cpu_power = Mathf.Round(cpu_power * 100f) / 100f;
 		storage = Mathf.Round(storage * 1000f) / 1000f;
 		//Never, ever seen this before. But it HAS to get a value assigned when its declared. Do not remove!
@@ -250,10 +256,12 @@ public class Job_Central : MonoBehaviour {
 		float.TryParse(array[3], out convertTemp2);
 		if(Server_Data.server_dat.needed_speed + convertTemp > Server_Data.server_dat.combined_speed) {
 			job_detail_panel.SetActive(false);
+			print("Not enough CPU!");
 			return;
 		}
-		if(Server_Data.server_dat.needed_speed + convertTemp2 > Server_Data.server_dat.combined_speed) {
+		if(Server_Data.server_dat.needed_space + convertTemp2 > Server_Data.server_dat.combined_storage) {
 			job_detail_panel.SetActive(false);
+			print("Not enough storage!!");
 			return;
 		}
 		if (Accepted1[0] == "0") {
@@ -309,6 +317,14 @@ public class Job_Central : MonoBehaviour {
 				UpdateUI();
 		}
 		//Remember to come back here for upgrade requirement for Accepted4 and Accepted 5
+		print("Not active");
+		if (JobOffer1[0] == null) {
+			if (JobOffer2[0] == null) {
+				if (JobOffer3[0] == null) {
+					Job_offer_panel.SetActive(false);
+				}
+			}
+		}
 		job_detail_panel.SetActive(false);
 	}
 
@@ -376,9 +392,6 @@ public class Job_Central : MonoBehaviour {
 			XmlNodeList content = jobinfo.ChildNodes;
 			foreach (XmlNode under_nodes in content) {
 				
-				if (under_nodes.Name == "job_number") {
-					int.TryParse(under_nodes.InnerText, out JobNumber);
-				}
 				if(under_nodes.Name == "lowest_pay") {
 					int.TryParse(under_nodes.InnerText, out low_pay[JobNumber]);
 				}
@@ -394,7 +407,37 @@ public class Job_Central : MonoBehaviour {
 				if (under_nodes.Name == "storage_max") {
 					float.TryParse(under_nodes.InnerText, out max_storage[JobNumber]);
 				}
+				if (under_nodes.Name == "job_name") {
+					jobs[JobNumber] = under_nodes.InnerText;
+				}
+				if (under_nodes.Name == "cpu_min") {
+					float.TryParse(under_nodes.InnerText, out min_cpu[JobNumber]);
+				}
+				if (under_nodes.Name == "storage_min") {
+					float.TryParse(under_nodes.InnerText, out min_storage[JobNumber]);
+				}
+			}
+			JobNumber++;
+		}
+	}
+
+	void CountJobsXML(string path) {
+		XmlDocument xmlfile = new XmlDocument();
+		xmlfile.Load(Application.dataPath + path);
+		XmlNodeList joblist = xmlfile.GetElementsByTagName("info");
+
+		int Number = 0;
+
+		foreach(XmlNode jobinfo in joblist) {
+			XmlNodeList content = jobinfo.ChildNodes;
+			foreach (XmlNode under_nodes in content) {
+
+				if (under_nodes.Name == "amount") {
+					int.TryParse(under_nodes.InnerText, out Number);
+				}
+
 			}
 		}
+		JobAmount = Number;
 	}
 }

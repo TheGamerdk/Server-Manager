@@ -34,6 +34,7 @@ public class Server_Data : MonoBehaviour {
 	void Update () {
 		GameObject.Find("Speed_Text").GetComponent<Text>().text = "Total Speed/Capacity: " + combined_speed + "Ghz";
 		GameObject.Find("Space_Text").GetComponent<Text>().text = "Total Space/Capacity: " + combined_storage + "GB";
+		AssignCapacity();
 	}
 
 
@@ -43,7 +44,7 @@ public class Server_Data : MonoBehaviour {
 		used_speed = needed_speed;
 		used_space = needed_space;
 		GameObject.Find("Speed_Text_Usage").GetComponent<Text>().text = "Used Capacity: " + used_speed + "/" + combined_speed + "Ghz";
-		GameObject.Find("Space_Text_Usage").GetComponent<Text>().text = "Used Capacity: " + used_speed + "/" + combined_speed + "GB";
+		GameObject.Find("Space_Text_Usage").GetComponent<Text>().text = "Used Capacity: " + used_space + "/" + combined_storage + "GB";
 		if (needed_speed > combined_speed) {
 			float local_needed = needed_speed;
 			used_speed = 0;
@@ -68,5 +69,20 @@ public class Server_Data : MonoBehaviour {
 			Company_Data.company_dat.money += temp;
 			int.TryParse(Job_Central.job_centrals.Accepted3[5], out temp);
 			Company_Data.company_dat.money += temp;
+		for (int i = 0; i < Job_Central.job_centrals.JobOffer1.Length; i++) {
+			Job_Central.job_centrals.JobOffer1[i] = null;
+		}
+		for (int i = 0; i < Job_Central.job_centrals.JobOffer2.Length; i++) {
+			Job_Central.job_centrals.JobOffer2[i] = null;
+		}
+		for (int i = 0; i < Job_Central.job_centrals.JobOffer3.Length; i++) {
+			Job_Central.job_centrals.JobOffer3[i] = null;
+		}
+		for (int i = 0; i < Job_Central.job_centrals.filled_spaces.Length; i++) {
+			Job_Central.job_centrals.filled_spaces[i] = false;
+		}
+		Job_Central.job_centrals.RandomiseJob(Job_Central.job_centrals.JobOffer1);
+		Job_Central.job_centrals.RandomiseJob(Job_Central.job_centrals.JobOffer2);
+		Job_Central.job_centrals.RandomiseJob(Job_Central.job_centrals.JobOffer3);
 	}
 }
