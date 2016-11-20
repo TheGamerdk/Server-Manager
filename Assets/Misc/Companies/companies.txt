@@ -12,6 +12,6 @@ Wolfconn
 Bell Technologies
 Pear 
 Sonic Pan
-googol
+Googl
 AmaZin
 PilotBay
