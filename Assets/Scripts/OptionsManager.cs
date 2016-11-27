@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class OptionsManager : MonoBehaviour {
 
 	public string html_color;
-	public GameObject camera;
+	//public GameObject camera_object;
 	public static OptionsManager options;
 
 	// Use this for initialization

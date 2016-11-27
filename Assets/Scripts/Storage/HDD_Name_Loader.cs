@@ -16,11 +16,11 @@ public class HDD_Name_Loader : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-		CountXMLFile("/Hardware/hardware.xml");
+		CountXMLFile("Hardware/hardware.xml");
 		HDD_names = new string[lenght_of_file];
 		HDD_amount = new int[lenght_of_file];
 		HDD_price = new int[lenght_of_file];
-		LoadDataFile("/Hardware/hardware.xml");
+		LoadDataFile("Hardware/hardware.xml");
 		if (hdd_name_loading == null) {
 			hdd_name_loading = this;
 			DontDestroyOnLoad(gameObject);
@@ -31,7 +31,7 @@ public class HDD_Name_Loader : MonoBehaviour {
 
 	void CountXMLFile(string path) {
 		XmlDocument xmlfile = new XmlDocument();
-		xmlfile.Load(Application.dataPath + path);
+		xmlfile.Load(System.IO.Path.GetFullPath("./") + path);
 		XmlNodeList joblist = xmlfile.GetElementsByTagName("hdd");
 
 		foreach(XmlNode jobinfo in joblist) {
@@ -47,7 +47,7 @@ public class HDD_Name_Loader : MonoBehaviour {
 
 	void LoadDataFile(string path) {
 		XmlDocument xmlfile = new XmlDocument();
-		xmlfile.Load(Application.dataPath + path);
+		xmlfile.Load(System.IO.Path.GetFullPath("./") + path);
 		XmlNodeList joblist = xmlfile.GetElementsByTagName("hdd");
 
 		int Number = 0;

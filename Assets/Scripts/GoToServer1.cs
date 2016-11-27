@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GoToServer1 : MonoBehaviour {
 
@@ -23,5 +24,6 @@ public class GoToServer1 : MonoBehaviour {
 		for(int i = 0; i < enable_objects.Length; i++) {
 			enable_objects[i].SetActive(true);
 		}
+
 	}
 }

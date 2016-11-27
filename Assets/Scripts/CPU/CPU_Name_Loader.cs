@@ -17,13 +17,13 @@ public class CPU_Name_Loader : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-		CountXMLFile("/Hardware/hardware.xml");
+		CountXMLFile("Hardware/hardware.xml");
 		CPU_names = new string[lenght_of_file];
 		CPU_clock_speed = new float[lenght_of_file];
 		CPU_cores = new int[lenght_of_file];
 		CPU_price = new int[lenght_of_file];
 		//LoadFiles();
-		LoadDataFile("/Hardware/hardware.xml");
+		LoadDataFile("Hardware/hardware.xml");
 		if (cpu_name_loading == null) {
 			cpu_name_loading = this;
 			DontDestroyOnLoad(gameObject);
@@ -45,7 +45,7 @@ public class CPU_Name_Loader : MonoBehaviour {
 
 		// CPU Name Loading starts here
 
-		path = Application.dataPath + "/Hardware/CPU/cpu.txt";
+		path = System.IO.Path.GetFullPath("./") + "Hardware/CPU/cpu.txt";
 		print("CPU Loader: Currently loaded Path: " + path);
 		StreamReader reader = new StreamReader(path);
 		for (int i = 0; i < CPU_names.Length; i++) {
@@ -56,7 +56,7 @@ public class CPU_Name_Loader : MonoBehaviour {
 
 		// CPU Clock Speed Loading starts here
 
-		path = Application.dataPath + "/Hardware/CPU/cpu_clock.txt";
+		path = System.IO.Path.GetFullPath("./")+ "Hardware/CPU/cpu_clock.txt";
 		print("CPU Loader: Currently loaded Path: " + path);
 		StreamReader reader2 = new StreamReader(path);
 		for (int i = 0; i < CPU_clock_speed.Length; i++) {
@@ -84,7 +84,7 @@ public class CPU_Name_Loader : MonoBehaviour {
 
 	void CountXMLFile(string path) {
 		XmlDocument xmlfile = new XmlDocument();
-		xmlfile.Load(Application.dataPath + path);
+		xmlfile.Load(System.IO.Path.GetFullPath("./") + path);
 		XmlNodeList joblist = xmlfile.GetElementsByTagName("cpu");
 
 		foreach(XmlNode jobinfo in joblist) {
@@ -100,7 +100,7 @@ public class CPU_Name_Loader : MonoBehaviour {
 
 	void LoadDataFile(string path) {
 		XmlDocument xmlfile = new XmlDocument();
-		xmlfile.Load(Application.dataPath + path);
+		xmlfile.Load(System.IO.Path.GetFullPath("./") + path);
 		XmlNodeList joblist = xmlfile.GetElementsByTagName("cpu");
 
 		int Number = 0;

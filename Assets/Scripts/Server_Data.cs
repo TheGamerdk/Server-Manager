@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class Server_Data : MonoBehaviour {
 
+	public GameObject[] servers;
 	public static Server_Data server_dat;
 	public float needed_speed;
 	public float used_speed;
@@ -12,6 +13,7 @@ public class Server_Data : MonoBehaviour {
 	public bool filled;
 	public float combined_speed; 
 	public float combined_storage;
+	public GameObject error_panel;
 
 	// Use this for initialization
 	void Awake () {
@@ -35,6 +37,15 @@ public class Server_Data : MonoBehaviour {
 		GameObject.Find("Speed_Text").GetComponent<Text>().text = "Total Speed/Capacity: " + combined_speed + "Ghz";
 		GameObject.Find("Space_Text").GetComponent<Text>().text = "Total Space/Capacity: " + combined_storage + "GB";
 		AssignCapacity();
+		Color grey = new Color(0.75f, 0.75f, 0.75f);
+		Color normal = new Color(0.4f, 0.4f, 0.4f);
+		if (servers[0].activeSelf == true) {
+			GameObject.Find("Server1").GetComponent<Image>().color = grey;
+			GameObject.Find("Server2").GetComponent<Image>().color = normal;
+		} else if (servers[1].activeSelf == true) {
+			GameObject.Find("Server2").GetComponent<Image>().color = grey;
+			GameObject.Find("Server1").GetComponent<Image>().color = normal;
+		} 
 	}
 
 
@@ -84,5 +95,7 @@ public class Server_Data : MonoBehaviour {
 		Job_Central.job_centrals.RandomiseJob(Job_Central.job_centrals.JobOffer1);
 		Job_Central.job_centrals.RandomiseJob(Job_Central.job_centrals.JobOffer2);
 		Job_Central.job_centrals.RandomiseJob(Job_Central.job_centrals.JobOffer3);
+		Research_Central.research.Process();
+		Company_Data.company_dat.weeknum++;
 	}
 }

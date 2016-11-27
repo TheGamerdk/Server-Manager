@@ -1,0 +1,50 @@
+<hardware>
+  <cpu>
+		<name>i3-530</name>
+		<clock_speed>1.5</clock_speed>
+		<cores>1</cores>
+		<price>150</price>
+  </cpu>
+  <cpu>
+		<name>i3-560</name>
+		<clock_speed>1.65</clock_speed>
+		<cores>1</cores>
+		<price>200</price>
+  </cpu>
+  <cpu>
+		<name>i3-2100</name>
+		<clock_speed>1.75</clock_speed>
+		<cores>1</cores>
+		<price>250</price>
+  </cpu>
+  <hdd>
+		<name>WD Blue</name>
+		<storage_amount>32</storage_amount>
+		<price>175</price>
+  </hdd>
+   <hdd>
+		<name>Offbrand Drive</name>
+		<storage_amount>16</storage_amount>
+		<price>125</price>
+  </hdd>
+  <hdd>
+		<name>nein Drive</name>
+		<storage_amount>16</storage_amount>
+		<price>125</price>
+  </hdd>
+  <hdd>
+		<name>test Drive</name>
+		<storage_amount>16</storage_amount>
+		<price>125</price>
+  </hdd>
+  <hdd>
+		<name>boy Drive</name>
+		<storage_amount>16</storage_amount>
+		<price>125</price>
+  </hdd>
+  <hdd>
+		<name>dic Drive</name>
+		<storage_amount>16</storage_amount>
+		<price>125</price>
+  </hdd>
+</hardware>
